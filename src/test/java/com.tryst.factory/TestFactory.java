@@ -32,4 +32,10 @@ public class TestFactory {
         System.out.println(dog.getName() +" :::"+ dog.toString());
 
     }
+
+    @Test(expected = RuntimeException.class)
+    public void createUnknownDog() {
+        String dogType = "unknown";
+        Dog dog = typeMap.get(dogType).create();
+    }
 }
